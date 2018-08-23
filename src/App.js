@@ -168,7 +168,7 @@ class App extends Component {
       requestWasSuccessful ? (
         <div>
         <nav className="nav">
-        <span id="subject" tabIndex='0'>Philadelphia Universities and Libraries</span>
+        <span id="subject" tabIndex='0'>Alexandria Universities and Musiums</span>
         </nav>
         <div id="container">
         <div id="map-container" role="application" tabIndex="-1">

@@ -18,8 +18,8 @@
 }
 
 .listView {
-  height: 100%;
-  background-color: white;
+  height: auto;
+  background-color: #8BC34A;
   width: 25%;
   position: absolute;
   left: 0;
@@ -28,10 +28,10 @@
 }
 
 .nav{
-background-color: #222a3e;
-color: #E6E6E6;
-padding: 15px;
-text-transform: uppercase;
+  background-color: #E91E63;
+  color: #080808;
+  padding: 15px;
+  text-transform: uppercase;
 }
 
 .infoWindow{
@@ -39,44 +39,56 @@ text-transform: uppercase;
 }
 
 .form-control{
-min-height: 28px; 
-width: 90%;  
-border:1px solid #222a3e;
-border-radius: 5px;
-margin-top: 10px;
-margin-bottom: 30px;
-font-size: 12px;
+  min-height: 28px;
+  width: 90%;
+  border: 1px solid #222a3e;
+  border-radius: 10px;
+  margin-top: 10px;
+  margin-bottom: 30px;
+  font-size: 12px;
+  padding: 10px;
 }
 
 input[type="text"]:focus{
-outline: none;
-box-shadow: 0px 0px 5px #313e41;
-border:1px solid #c59466;
-border-radius: 5px;
+  outline: none;
+  box-shadow: 0px 0px 5px #313e41;
+  border:1px solid #c59466;
+  border-radius: 5px;
 }
 
 input[type="text"]:hover{
-border: 1px solid #666;
-border-radius: 5px;
+  border: 1px solid #666;
+  border-radius: 5px;
 }
 
 input[type="text"]:focus:hover{
-outline: none;
-box-shadow: 0px 0px 5px #c59466;
-border:1px solid #313e41;
-border-radius:5px;
+  outline: none;
+  box-shadow: 0px 0px 5px #c59466;
+  border:1px solid #313e41;
+  border-radius:5px;
 
 }   
 
 ul{
  padding-right: 10px;
- list-style-type: square;
+ list-style-type: lower-roman;
 }
+
 li{
   padding-bottom: 10px;
 }
+
 @media screen and (max-width: 800px) {
+.listView {
+  height: auto;
+  background-color: #8BC34A;
+  width: 100%;
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  border-radius: 0 10px 10px 0;
+}
 ul{
-font-size: 10px;
+  font-size: 10px;
 }
 }

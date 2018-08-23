@@ -1,21 +1,21 @@
 import React, { Component } from 'react';
-import logo from './logo.svg';
 import './App.css';
+import {Locations} from './locations'
+import {mapStyle} from './mapCustomStyle'
+import scriptLoader from 'react-async-script-loader';
 
 class App extends Component {
   render() {
     return (
-      <div className="App">
-        <header className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
-          <h1 className="App-title">Welcome to React</h1>
-        </header>
-        <p className="App-intro">
-          To get started, edit <code>src/App.js</code> and save to reload.
-        </p>
+      <div id="container">
+        <div id="map-container" role="application" tabIndex="-1">
+        <div id="map" role="region" aria-label="Philadelphia Neighborhood"></div>
+        </div>
       </div>
     );
   }
 }
 
-export default App;
+export default scriptLoader(
+  [`https://maps.googleapis.com/maps/api/js?key=AIzaSyAM5LI4livWcmjbjb6H71aiXQAdHnw9RZQ&v=3.exp&libraries=geometry,drawing,places`]
+  )(App);

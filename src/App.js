@@ -57,6 +57,7 @@ class App extends Component {
   }
 
   componentDidUpdate(){
+    //Filter the locations depending on the user input 
     const {locations, query,map} = this.state;
     let showingLocations=locations
     if (query){
@@ -67,9 +68,11 @@ class App extends Component {
       showingLocations=locations
     }
     markers.forEach(mark => { mark.setMap(null) });
+    // Clear the markers and the infoWindows arrays
     markers = [];
     infoWindows = [];
     showingLocations.map((marker,index)=> {
+    //Filter the data that is stored form wikipedia
     let getData = this.state.data.filter((single)=>marker.title === single[0][0]).map(item2=>
       {if (item2.length===0)
         return 'No Contents Have Been Found Try to Search Manual'
@@ -113,7 +116,7 @@ class App extends Component {
           
           infoWindows.forEach(info => { info.close() });
           addInfoWindow.open(map, addmarker);
-          
+          //Clear he animaiton before add the new one
           if (addmarker.getAnimation() !== null) {
             addmarker.setAnimation(null);
           } else {
@@ -140,7 +143,7 @@ class App extends Component {
       )
     })
   }
-
+//Trigger a specific marker when the list item is clicked
   listItem = (item, event) => {
     let selected = markers.filter((currentOne)=> currentOne.name === item.title)
     window.google.maps.event.trigger(selected[0], 'click');

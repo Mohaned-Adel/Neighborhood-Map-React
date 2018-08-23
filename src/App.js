@@ -9,7 +9,11 @@ class App extends Component {
     super(props);
     this.state = {
       map: {},
-      requestSuccess: true
+      requestSuccess: true,
+      locations: Locations,
+      selectedMarker:'',
+      data:[],
+      query: '',
     }
   }
 
@@ -25,6 +29,16 @@ class App extends Component {
       console.log("Error:Cann't Load Google Map!");
       this.setState({requestSuccess: false})
     }
+  }
+
+  updatequery =(query) => {
+    this.setState({query: query})
+  }
+
+  updateData = (newData) => {
+    this.setState({
+      data:newData,
+    });
   }
 
   render() {

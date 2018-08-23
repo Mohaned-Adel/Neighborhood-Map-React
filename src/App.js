@@ -1,10 +1,32 @@
 import React, { Component } from 'react';
 import './App.css';
 import {Locations} from './locations'
-import {mapStyle} from './mapCustomStyle'
+import {mapCustomStyle} from './mapCustomStyle'
 import scriptLoader from 'react-async-script-loader';
 
 class App extends Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      map: {},
+      requestSuccess: true
+    }
+  }
+
+  componentWillReceiveProps({isScriptSucceed}) {
+    if(isScriptSucceed) {
+      const map = new window.google.maps.Map(document.getElementById('map'), {
+        zoom: 13,
+        center: new window.google.maps.LatLng(31.207296,29.92414),
+        styles: mapCustomStyle
+      });
+      this.setState({map: map});
+    } else {
+      console.log("Error:Cann't Load Google Map!");
+      this.setState({requestSuccess: false})
+    }
+  }
+
   render() {
     return (
       <div id="container">
